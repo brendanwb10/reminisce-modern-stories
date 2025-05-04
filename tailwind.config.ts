@@ -1,4 +1,6 @@
+
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 export default {
 	darkMode: ["class"],
@@ -61,7 +63,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				reminisce: {
+					cream: "#FDF8F0",
+					tan: "#E9E2D6",
+					sage: "#C4CABD",
+					navy: "#34425A",
+					gold: "#D4AF37",
+					coral: "#F28F6B",
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,13 +94,58 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { 
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': { 
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'float': {
+					'0%, 100%': { 
+						transform: 'translateY(0)'
+					},
+					'50%': { 
+						transform: 'translateY(-10px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'float': 'float 6s ease-in-out infinite'
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				serif: ['Lora', 'serif'],
+				display: ['Playfair Display', 'serif'],
+			},
+			typography: {
+				DEFAULT: {
+					css: {
+						maxWidth: '65ch',
+						color: 'var(--tw-prose-body)',
+						'[class~="lead"]': {
+							color: 'var(--tw-prose-lead)',
+						},
+						a: {
+							color: 'var(--tw-prose-links)',
+							textDecoration: 'underline',
+							textDecorationStyle: 'dotted',
+							textUnderlineOffset: '3px',
+						},
+						'a:hover': {
+							textDecorationStyle: 'solid',
+						},
+					},
+				},
+			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [require("tailwindcss-animate"), typography()],
 } satisfies Config;
