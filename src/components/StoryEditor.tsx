@@ -1,4 +1,3 @@
-
 import { useState, useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -9,7 +8,7 @@ import {
   Underline, 
   Image as ImageIcon,
   Save,
-  Preview
+  Eye
 } from "lucide-react";
 
 interface StoryEditorProps {
@@ -197,7 +196,7 @@ const StoryEditor = ({ id, content, onChange }: StoryEditorProps) => {
           onClick={togglePreview}
           className="text-xs"
         >
-          <Preview size={16} className="mr-1" />
+          <Eye size={16} className="mr-1" />
           {isPreview ? "Edit" : "Preview"}
         </Button>
       </div>
