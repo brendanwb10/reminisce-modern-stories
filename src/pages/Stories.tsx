@@ -5,7 +5,8 @@ import Footer from "@/components/Footer";
 import StoryCard from "@/components/StoryCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search } from "lucide-react";
+import { Search, PenLine } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Stories = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -110,9 +111,15 @@ const Stories = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="mb-12 text-center">
             <h1 className="font-display text-4xl md:text-5xl font-bold mb-4">Community Stories</h1>
-            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+            <p className="text-slate-600 text-lg max-w-2xl mx-auto mb-6">
               Explore stories shared by our community. These narratives connect us across time and space.
             </p>
+            <Link to="/write-story">
+              <Button className="bg-reminisce-coral hover:bg-reminisce-coral/90">
+                <PenLine size={18} className="mr-2" />
+                Write Your Story
+              </Button>
+            </Link>
           </div>
           
           {/* Search and filters */}
